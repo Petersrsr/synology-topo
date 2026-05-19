@@ -6,19 +6,128 @@
 		this.setCurrentSearchEntryLibrary('synology_nas');
 
 		var items = [
-			'f-RS3618xs_front',
-			'f-RX1222sas_front',
-			'RS2423RP+_front'
+			// DS 系列
+			'DS124_front',
+			'DS223_front',
+			'DS223j_front',
+			'DS224+_front',
+			'DS225+_front',
+			'DS423_front',
+			'DS423+_front',
+			'DS425+_front',
+			'DS723+_front',
+			'DS725+_front',
+			'DS923+_front',
+			'DS925+_front',
+			'DS1522+_front',
+			'DS1525+_front',
+			'DS1823xs+_front',
+			'DS1825+_front',
+			'DS2422+_front',
+			'DS3622xs+_front',
+			'DVA1622_front',
+			// DS 扩展柜
+			'DX525_front',
+			'DX1222_front',
+			// RS 系列
+			'RS422+_front',
+			'RS822+_front',
+			'RS822RP+_front',
+			'RS1225RP_front_M',
+			'RS2423+_front',
+			'RS2423RP+_front',
+			'RS2825RP+_front',
+			'RS3618xs_front',
+			// RS 扩展柜
+			'RX6022sas_front',
+			'RX6025sas_front',
+			'RX1222sas_front',
+			'RX1223RP_front',
+			// SA 系列
+			'SA3400D_front',
+			'SA3410_front',
+			'SA3610_front'
 		];
 		var titles = [
+			// DS 系列
+			'DS124',
+			'DS223',
+			'DS223j',
+			'DS224+',
+			'DS225+',
+			'DS423',
+			'DS423+',
+			'DS425+',
+			'DS723+',
+			'DS725+',
+			'DS923+',
+			'DS925+',
+			'DS1522+',
+			'DS1525+',
+			'DS1823xs+',
+			'DS1825+',
+			'DS2422+',
+			'DS3622xs+',
+			'DVA1622',
+			// DS 扩展柜
+			'DX525',
+			'DX1222',
+			// RS 系列
+			'RS422+',
+			'RS822+',
+			'RS822RP+',
+			'RS1225RP',
+			'RS2423+',
+			'RS2423RP+',
+			'RS2825RP+',
 			'RS3618xs',
-			'RX1222sas 扩展柜',
-			'RS2423RP+'
+			// RS 扩展柜
+			'RX6022sas',
+			'RX6025sas',
+			'RX1222sas',
+			'RX1223RP',
+			// SA 系列
+			'SA3400D',
+			'SA3410',
+			'SA3610'
 		];
 		var tags = {
-			'f-RS3618xs_front': 'synology nas rack rs3618xs storage server',
-			'f-RX1222sas_front': 'synology expansion unit rx1222sas',
-			'RS2423RP+_front': 'synology nas rack rs2423 storage server'
+			'DS124_front': 'synology nas desktop ds124 storage',
+			'DS223_front': 'synology nas desktop ds223 storage',
+			'DS223j_front': 'synology nas desktop ds223j storage',
+			'DS224+_front': 'synology nas desktop ds224 storage',
+			'DS225+_front': 'synology nas desktop ds225 storage',
+			'DS423_front': 'synology nas desktop ds423 storage',
+			'DS423+_front': 'synology nas desktop ds423 storage',
+			'DS425+_front': 'synology nas desktop ds425 storage',
+			'DS723+_front': 'synology nas desktop ds723 storage',
+			'DS725+_front': 'synology nas desktop ds725 storage',
+			'DS923+_front': 'synology nas desktop ds923 storage',
+			'DS925+_front': 'synology nas desktop ds925 storage',
+			'DS1522+_front': 'synology nas desktop ds1522 storage',
+			'DS1525+_front': 'synology nas desktop ds1525 storage',
+			'DS1823xs+_front': 'synology nas desktop ds1823xs storage',
+			'DS1825+_front': 'synology nas desktop ds1825 storage',
+			'DS2422+_front': 'synology nas desktop ds2422 storage',
+			'DS3622xs+_front': 'synology nas desktop ds3622xs storage',
+			'DVA1622_front': 'synology nas desktop dva1622 nvr surveillance',
+			'DX525_front': 'synology expansion unit dx525',
+			'DX1222_front': 'synology expansion unit dx1222',
+			'RS422+_front': 'synology nas rack rs422 storage server',
+			'RS822+_front': 'synology nas rack rs822 storage server',
+			'RS822RP+_front': 'synology nas rack rs822rp storage server',
+			'RS1225RP_front_M': 'synology nas rack rs1225rp storage server',
+			'RS2423+_front': 'synology nas rack rs2423 storage server',
+			'RS2423RP+_front': 'synology nas rack rs2423rp storage server',
+			'RS2825RP+_front': 'synology nas rack rs2825rp storage server',
+			'RS3618xs_front': 'synology nas rack rs3618xs storage server',
+			'RX6022sas_front': 'synology expansion unit rx6022sas',
+			'RX6025sas_front': 'synology expansion unit rx6025sas',
+			'RX1222sas_front': 'synology expansion unit rx1222sas',
+			'RX1223RP_front': 'synology expansion unit rx1223rp',
+			'SA3400D_front': 'synology sa sa3400d storage',
+			'SA3410_front': 'synology sa sa3410 storage',
+			'SA3610_front': 'synology sa sa3610 storage'
 		};
 
 		var fns = [];
