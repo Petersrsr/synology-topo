@@ -25,7 +25,7 @@ Menus.prototype.defaultFontSize = '12';
 /**
  * Sets the default font size.
  */
-Menus.prototype.defaultMenuItems = ['file', 'edit', 'view', 'arrange', 'extras'];
+Menus.prototype.defaultMenuItems = ['file', 'edit', 'view', 'arrange'];
 
 /**
  * Lookup for menu items and submenus to hide. Set via the
