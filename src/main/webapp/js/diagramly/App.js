@@ -6492,35 +6492,7 @@ App.prototype.updateButtonContainer = function(skipNotifications)
 				this.commentButton.style.display = (this.commentsSupported()) ? '' : 'none';
 			}
 
-			// Share
-			if (this.shareButton == null)
-			{
-				this.shareButton = document.createElement('button');
-				this.shareButton.className = 'geBtn gePrimaryBtn';
-
-				var label = document.createElement('div');
-				label.className = 'geButton';
-				label.style.backgroundImage = 'url(' + Editor.groupImage + ')';
-				this.shareButton.appendChild(label);
-
-				this.dependsOnLanguage(mxUtils.bind(this, function()
-				{
-					label.innerHTML = '';
-					mxUtils.write(label, mxResources.get('share'));
-					this.shareButton.setAttribute('title', mxResources.get('share'));
-				}));
-				
-				mxEvent.addListener(this.shareButton, 'click', mxUtils.bind(this, function()
-				{
-					this.actions.get('share').funct();
-				}));
-				
-				this.buttonContainer.appendChild(this.shareButton);
-			}
-
-			this.shareButton.style.display = (file != null &&
-				Editor.currentTheme == 'kennedy' &&
-				urlParams['embed'] != '1') ? '' : 'none';
+			// Share button removed
 			
 			// User
 			if (Editor.currentTheme != 'simple')
@@ -7600,7 +7572,7 @@ App.prototype.updateHeader = function()
 {
 	if (this.menubar != null)
 	{
-		var logo = 'url(' + Editor.logoImage + ')';
+		var logo = 'url(img/sinosignal-logo/logo.png)';
 		this.appIcon = document.createElement('a');
 		this.appIcon.className = 'geAppIcon';
 		this.appIcon.style.backgroundImage = logo;
