@@ -485,7 +485,9 @@
 			{title: mxResources.get('basic'), id: 'basic', image: IMAGE_PATH + '/sidebar-basic.png'},
 			{title: mxResources.get('arrows'), id: 'arrows2', image: IMAGE_PATH + '/sidebar-arrows2.png'},
 			{title: mxResources.get('clipart'), id: 'clipart', image: IMAGE_PATH + '/sidebar-clipart.png'},
-			{title: mxResources.get('flowchart'), id: 'flowchart', image: IMAGE_PATH + '/sidebar-flowchart.png'}];
+			{title: mxResources.get('flowchart'), id: 'flowchart', image: IMAGE_PATH + '/sidebar-flowchart.png'},
+			{title: 'Synology NAS', id: 'synology_nas', image: IMAGE_PATH + '/synology/f-RS3618xs_front.png'},
+			{title: 'Synology DSM', id: 'synology_software', image: IMAGE_PATH + '/synology-software/Drive_128.png'}];
 		
 		if (Editor.currentTheme == 'simple' ||
 			Editor.currentTheme == 'sketch' ||
