@@ -40,6 +40,7 @@
 <body class="geEditor geClassic">
 <div id="geInfo">
 	<div class="geBlock">
+		<img src="img/sinosignal-logo/logo.png" style="height:60px;margin-bottom:16px;" />
 		<h1>Synology Topology Designer</h1>
 		<p>
 			Design Synology NAS solution topology diagrams. Drag and drop NAS models and DSM software packages to create professional solution proposals for your customers.
@@ -51,5 +52,14 @@
 	</div>
 </div>
 <script src="js/main.js"></script>
+<script>
+window.addEventListener('load', function() {
+	var el = document.createElement('div');
+	el.id = 'sinosignal-footer';
+	el.style.cssText = 'position:fixed;bottom:0;left:0;right:0;height:28px;background:#f5f5f5;border-top:1px solid #e0e0e0;display:flex;align-items:center;justify-content:center;font:12px/1 Arial,sans-serif;color:#888;z-index:9999;pointer-events:none;';
+	el.innerHTML = '<img src="img/sinosignal-logo/logo.png" style="height:16px;vertical-align:middle;margin-right:6px;" /> SinoSignal &copy; ' + new Date().getFullYear();
+	document.body.appendChild(el);
+});
+</script>
 </body>
 </html>
