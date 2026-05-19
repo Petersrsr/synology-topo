@@ -1,51 +1,72 @@
-# draw.io
+# Sino 群晖方案拓扑系统
 
-## About
+基于 [draw.io](https://github.com/jgraph/drawio) v30.0.2 定制的群晖专属方案拓扑图工具，供 Synology 经销商快速生成专业方案拓扑图。
 
-draw.io is a configurable diagramming and whiteboarding application, jointly owned and developed by draw.io Ltd (previously named JGraph) and draw.io AG. We also run a production deployment at https://app.diagrams.net.
+## 功能特性
 
-## License
+- **拖拽式拓扑设计**：从侧边栏拖拽 NAS 机型和 DSM 软件包到画布，快速搭建方案拓扑
+- **全系列机型支持**：DS、RS、SA、DX、RX 全系列共 36 款 Synology NAS 机型图标
+- **96 款 DSM 软件包**：涵盖备份、存储、虚拟化、监控等全品类套件
+- **子串搜索**：输入型号关键词（如 "3618"、"dri"）即可快速定位图标
+- **中文界面**：默认中文语言，加载页与操作界面全面汉化
+- **多格式导出**：支持 PNG、SVG、PDF 导出方案图
+- **公司署名**：页面加载页与工具栏底部显示 SinoSignal 品牌标识
 
-The source code in this repository is licensed under the [Apache License 2.0](LICENSE).
+## 技术栈
 
-The icon sets, stencil libraries, and diagram templates are provided under the following terms:
+- draw.io (diagrams.net) v30.0.2 - mxGraph 图形引擎
+- Java WAR 包结构，支持 Tomcat 等 Servlet 容器部署
+- 纯前端 JavaScript，无需后端服务
 
-> The icon sets and stencil libraries included in this software, and any derivatives thereof (including conversions to other formats, traced reproductions, substantially similar visual representations, or AI-generated images created using these icons as reference or training input), may not be used as software assets in, distributed for use with, or incorporated into Atlassian products or products distributed through the Atlassian marketplace or plugin ecosystem, without explicit written permission.
->
-> This restriction does not apply to end-user diagram output (such as exported images or documents) created using this software.
+## 部署方式
 
-Some icons are originally defined by third-party copyright holders; we have verified that all original licenses permit use in this project. Additional third-party JavaScript libraries are included, all with licenses compatible with Apache 2.0 (no GPL or AGPL).
+### 开发模式
 
-We make no copyright claim on diagrams you create with this software.
+```bash
+# 启动 Tomcat 后访问（带 dev 参数加载未压缩 JS）
+http://localhost:8080/index.html?dev=1
+```
 
-## Contributions
+### 生产部署
 
-We do not accept pull requests. The project is developed entirely by the core team.
+```bash
+# 编译 WAR 包
+mvn package
 
-## Scope
+# 部署到 Tomcat
+cp target/*.war $CATALINA_HOME/webapps/ROOT.war
+```
 
-draw.io is a diagramming and whiteboarding application. It is not an SVG editor. SVG export is intended for embedding in web pages, not for editing in other tools.
+## 项目结构
 
-Note that draw.io does not support real-time collaborative editing in this version, currently.
+```
+src/main/webapp/
+├── index.html                          # 入口页面（含 SinoSignal 加载页）
+├── img/
+│   ├── synology/                       # NAS 机型图标（36款）
+│   ├── synology-software/              # DSM 软件包图标（96款）
+│   └── sinosignal-logo/               # SinoSignal 公司 logo
+├── js/diagramly/sidebar/
+│   └── Sidebar-Synology.js            # 群晖形状库定义
+├── js/diagramly/sidebar/Sidebar.js    # 侧边栏配置（精简后）
+├── js/grapheditor/Sidebar.js          # 搜索逻辑（含子串匹配）
+├── js/grapheditor/Menus.js            # 菜单配置（精简后）
+├── js/diagramly/App.js                # 应用主逻辑
+└── styles/grapheditor.css             # 样式定义
+```
 
-For issues or questions about the editor in any draw.io product, the issue tracker and discussions here are a good starting point.
+## 定制说明
 
-## Running
+本项目基于 draw.io 开源版（Apache 2.0 许可证）进行以下定制：
 
-Options for running draw.io:
+1. **侧边栏精简**：仅保留通用、基本、箭头、流程图、Synology NAS、Synology DSM 六个面板
+2. **菜单精简**：移除 Help 菜单和 Extras（其它）菜单
+3. **搜索增强**：添加子串匹配，支持型号关键词模糊搜索
+4. **品牌定制**：替换 draw.io logo 为 SinoSignal 公司标识
+5. **语言汉化**：默认中文界面，加载页文案汉化
 
-- Fork this repository and [publish to GitHub Pages](https://help.github.com/categories/github-pages-basics/) for a [fully functional editor](https://jgraph.github.io/drawio/src/main/webapp/index.html) (without integrations)
-- Use the [official Docker image](https://github.com/jgraph/docker-drawio)
-- Download [draw.io Desktop](https://get.diagrams.net)
+## 许可证
 
-Packaged .war files are available on the [releases page](https://github.com/jgraph/draw.io/releases).
+基于 [draw.io](https://github.com/jgraph/drawio)（Apache License 2.0）定制。
 
-## Supported Browsers
-
-Chrome 123+, Firefox 120+, Safari 17.5+, Opera 109+, Edge 123+, WebView Android 137+, Safari iOS 18.5+.
-
-## Trademark
-
-draw.io is a registered EU trademark (#018062448).
-
-Do not use the draw.io name or logo in ways that suggest affiliation with, endorsement by, or sponsorship by draw.io. Do not use draw.io logos for your own business, product, project, domain, or social media presence. Do not modify the draw.io logos. Use of draw.io trademarks requires prior written permission.
+SinoSignal 公司 logo 版权归 SinoSignal 所有。
