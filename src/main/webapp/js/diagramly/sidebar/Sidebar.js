@@ -30,7 +30,7 @@
 	/**
 	 * 
 	 */
-	Sidebar.prototype.defaultEntries = 'general;uml;er;bpmn;flowchart;basic;arrows2';
+	Sidebar.prototype.defaultEntries = 'general;basic;arrows2;flowchart;synology_nas;synology_software';
 	
 	/**
 	 * Library definitions 
@@ -116,7 +116,7 @@
 	 * 
 	 * https://www.drawio.com/doc/faq/supported-url-parameters
 	 */
-	Sidebar.prototype.enabledLibraries = null;
+	Sidebar.prototype.enabledLibraries = ['general', 'basic', 'arrows2', 'flowchart', 'synology_nas', 'synology_software'];
 	
 	/**
 	 * Maximum number of custom libraries to preload into the search index.
@@ -126,7 +126,8 @@
 	/**
 	 *
 	 */
-	Sidebar.prototype.configuration = [{id: 'general', libs: ['general', 'misc', 'advanced']},
+	Sidebar.prototype.configuration = [{id: 'synology_nas'}, {id: 'synology_software'},
+									   {id: 'general', libs: ['general', 'misc', 'advanced']},
 									   {id: 'uml'}, {id: 'uml25'}, {id: 'search'}, {id: 'er'}, {id: 'alibaba_cloud'},
 									   {id: 'azure2', prefix: 'azure2', libs: ['AI Machine Learning', 'Analytics', 'App Services', 'Azure Ecosystem', 'Azure Stack', 'Azure VMware Solution', 'Blockchain', 'Compute', 'Containers', 'CXP', 'Databases', 'DevOps', 'General', 'Hybrid and Multicloud', 'Identity', 'Integration', 'Intune', 'IoT', 'Management Governance', 'Menu', 'Migrate', 'Mixed Reality', 'Mobile', 'Monitor', 'Networking', 'Other', 'Power Platform', 'Preview', 'Security', 'Storage', 'Web']},
 									   {id: 'dynamics365', prefix: 'dynamics365', libs: ['App', 'Mixed Reality', 'Product Family', 'Sub App']},
@@ -1351,6 +1352,9 @@
 		{
 			this.addCustomEntries();
 		}
+
+		this.addSynologyNASPalette();
+		this.addSynologySoftwarePalette();
 
 		this.addGeneralPalette(this.customEntries == null);
 		this.addMiscPalette(false);	
