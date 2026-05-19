@@ -1009,14 +1009,14 @@ Sidebar.prototype.matchTermEntries = function(term, reverseMap)
 		}
 	}
 
-	// Prefix matching for partial search terms
+	// Substring matching for partial search terms
 	if (term.length >= 2)
 	{
 		var taglist = this.taglist;
 
 		for (var key in taglist)
 		{
-			if (key !== term && key.indexOf(term) === 0)
+			if (key !== term && key.indexOf(term) >= 0)
 			{
 				found = taglist[key];
 
