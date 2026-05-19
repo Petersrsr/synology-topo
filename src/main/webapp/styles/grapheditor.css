@@ -209,7 +209,7 @@ div[id*="dgeMermaidOutput-"] {
 	position: absolute;
 	align-items: center;
 	box-sizing: border-box;
-	padding: 0px 2px 0px 58px;
+	padding: 0px 2px 0px 0px;
 }
 
 .geFilenameContainer {
