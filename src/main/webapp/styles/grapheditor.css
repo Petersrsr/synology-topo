@@ -202,7 +202,7 @@ div[id*="dgeMermaidOutput-"] {
 
 .geMenubar {
 	top: 28px;
-	left: 140px;
+	left: 138px;
 	right: 0;
 	height: 30px;
 	display: flex;
@@ -215,7 +215,7 @@ div[id*="dgeMermaidOutput-"] {
 .geFilenameContainer {
 	position: absolute;
 	right: 260px;
-	left: 60px;
+	left: 140px;
 	top: 4px;
 	height: 26px;
 	display: block;
