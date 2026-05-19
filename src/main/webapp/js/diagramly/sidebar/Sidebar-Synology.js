@@ -31,7 +31,10 @@
 				this.filterTags(tags[items[i]])));
 		}
 
+		var prev = this.expandLibraries;
+		this.expandLibraries = true;
 		this.addPaletteFunctions('synology_nas', 'Synology NAS', true, fns);
+		this.expandLibraries = prev;
 		this.setCurrentSearchEntryLibrary();
 	};
 
@@ -345,7 +348,10 @@
 				this.filterTags(searchTags[items[i]])));
 		}
 
+		var prev = this.expandLibraries;
+		this.expandLibraries = true;
 		this.addPaletteFunctions('synology_software', 'Synology DSM', true, fns);
+		this.expandLibraries = prev;
 		this.setCurrentSearchEntryLibrary();
 	};
 })();

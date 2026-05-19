@@ -959,13 +959,14 @@ Sidebar.prototype.splitCompoundToken = function(token)
 };
 
 /**
- * Collects entries matching a single term (exact + Soundex).
+ * Collects entries matching a single term (exact + Soundex + prefix).
  * Returns { exact: [entries], phonetic: [entries] }.
  */
 Sidebar.prototype.matchTermEntries = function(term, reverseMap)
 {
 	var exact = [];
 	var phonetic = [];
+	var prefix = [];
 
 	var found = this.taglist[term];
 
@@ -1008,7 +1009,31 @@ Sidebar.prototype.matchTermEntries = function(term, reverseMap)
 		}
 	}
 
-	return { exact: exact, phonetic: phonetic };
+	// Prefix matching for partial search terms
+	if (term.length >= 2)
+	{
+		var taglist = this.taglist;
+
+		for (var key in taglist)
+		{
+			if (key !== term && key.indexOf(term) === 0)
+			{
+				found = taglist[key];
+
+				for (var i = 0; i < found.entries.length; i++)
+				{
+					if (mxUtils.indexOf(exact, found.entries[i]) < 0 &&
+						mxUtils.indexOf(phonetic, found.entries[i]) < 0 &&
+						mxUtils.indexOf(prefix, found.entries[i]) < 0)
+					{
+						prefix.push(found.entries[i]);
+					}
+				}
+			}
+		}
+	}
+
+	return { exact: exact, phonetic: phonetic, prefix: prefix };
 };
 
 /**
@@ -1106,7 +1131,7 @@ Sidebar.prototype.searchEntries = function(searchTerms, count, page, success, er
 
 		for (var i = 0; i < termMatches.length; i++)
 		{
-			var arr = termMatches[i].exact.concat(termMatches[i].phonetic);
+			var arr = termMatches[i].exact.concat(termMatches[i].phonetic).concat(termMatches[i].prefix);
 			var tmpDict = new mxDictionary();
 
 			if (arr.length > 0)
@@ -1140,8 +1165,8 @@ Sidebar.prototype.searchEntries = function(searchTerms, count, page, success, er
 			}
 		}
 
-		// Score candidates: +1.0 per exact match, +0.5 per Soundex-only match
-		// Each shape scores at most once per term (exact wins over Soundex)
+		// Score candidates: +1.0 per exact match, +0.5 per Soundex-only match, +0.25 per prefix match
+		// Each shape scores at most once per term (exact wins over Soundex wins over prefix)
 		var scores = new mxDictionary();
 		var allEntries = new mxDictionary();
 		var candidateFilter = null;
@@ -1185,6 +1210,21 @@ Sidebar.prototype.searchEntries = function(searchTerms, count, page, success, er
 					var prev = scores.get(entry);
 
 					scores.put(entry, (prev || 0) + 0.5);
+					allEntries.put(entry, entry);
+					exactForTerm.put(entry, true);
+				}
+			}
+
+			for (var j = 0; j < termMatches[i].prefix.length; j++)
+			{
+				var entry = termMatches[i].prefix[j];
+
+				if ((candidateFilter == null || candidateFilter.get(entry) != null) &&
+					exactForTerm.get(entry) == null)
+				{
+					var prev = scores.get(entry);
+
+					scores.put(entry, (prev || 0) + 0.25);
 					allEntries.put(entry, entry);
 				}
 			}
