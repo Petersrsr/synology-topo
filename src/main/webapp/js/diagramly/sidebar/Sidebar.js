@@ -1242,9 +1242,6 @@
 		this.addMiscPalette(false);
 		this.addAdvancedPalette(false);
 		this.addBasicPalette();
-		this.addStencilPalette('arrows', mxResources.get('arrows'), dir + '/arrows.xml',
-				';html=1;' + mxConstants.STYLE_VERTICAL_LABEL_POSITION + '=bottom;' + mxConstants.STYLE_VERTICAL_ALIGN + '=top;' + mxConstants.STYLE_STROKEWIDTH + '=2;strokeColor=#000000;',
-				null, null, null, null, null, 'arrows');
 		this.addArrows2Palette();
 		this.addFlowchartPalette();
 		
