@@ -2485,7 +2485,7 @@ App.prototype.onBeforeUnload = function()
  */
 App.prototype.updateDocumentTitle = function()
 {
-	var title = this.editor.appName;
+	var title = 'Sino群晖方案拓扑系统';
 	var file = this.getCurrentFile();
 
 	if (file != null && (this.editor.graph.isLightboxView() ||
