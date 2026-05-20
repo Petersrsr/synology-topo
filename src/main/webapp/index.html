@@ -12,17 +12,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="msapplication-config" content="images/browserconfig.xml">
     <meta name="mobile-web-app-capable" content="yes">
-	<meta name="theme-color" content="#00B5AD">
+	<meta name="theme-color" content="#047869">
     <link rel="canonical" href="https://app.diagrams.net">
 	<link rel="manifest" href="images/manifest.json">
 	<link rel="icon" href="img/sinosignal-logo/favicon.ico" sizes="any">
 	<link rel="shortcut icon" href="img/sinosignal-logo/favicon.ico">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap">
     <link rel="stylesheet" type="text/css" href="styles/grapheditor.css">
 	<link rel="stylesheet" media="(forced-colors: active)" href="styles/high-contrast.css" id="high-contrast-stylesheet">
 	<script>var mxLanguage = 'zh';</script>
 	<script src="js/bootstrap.js"></script>
 	<style type="text/css">
+		body { background: #e2ddd6; }
 		.geBlock {
 			z-index:-3;
 			margin:100px;
@@ -31,10 +35,25 @@
 			padding:20px;
 			text-align:center;
 			min-width:50%;
+			font-family: "DM Sans", -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+			color: #2b2926;
 		}
-		.geBlock h1, .geBlock h2 {
+		.geBlock h1 {
 			margin-top:0px;
 			padding-top:0px;
+			font-weight:600;
+			font-size:28px;
+			letter-spacing:-0.5px;
+		}
+		.geBlock h2 {
+			margin-top:0px;
+			padding-top:0px;
+			font-weight:400;
+			color:#6a655e;
+		}
+		.geBlock p {
+			color:#6a655e;
+			line-height:1.6;
 		}
 	</style>
 </head>
